@@ -1,9 +1,10 @@
 import './App.css';
+import CountPage from "./pages/countPage/CountPage";
 
 function App() {
   return (
     <div className="App">
-     <h1>Hello</h1>
+        <CountPage/>
     </div>
   );
 }
