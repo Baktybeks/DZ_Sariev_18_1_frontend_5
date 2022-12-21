@@ -1,7 +1,8 @@
 const initialState = {
-    value: {valueOneS: '', valueSecondS: ''},
+    valueS: {valueOneS: '', valueSecondS: ''},
     answer: "",
     answerSecond: "",
+    answerThird: "",
 }
 
 export default function reducer(state = initialState, action) {
@@ -25,29 +26,56 @@ export default function reducer(state = initialState, action) {
             ...state, answer: (Number(action.payload.valueOne) /
                 Number(action.payload.valueSecond)).toFixed(1)
         }
-    } else if (action.type === "MINUS_SECOND") {
+    }
+    // второй калькулятор
+    else if (action.type === "MINUS_SECOND") {
         return {
             ...state, answerSecond: Number(action.payload.valueOneS) -
-                Number(action.payload.valueSecondS), value: {valueOneS: '', valueSecondS: ''}
+                Number(action.payload.valueSecondS), valueS: {valueOneS: '', valueSecondS: ''}
         }
     } else if (action.type === "MULTIPLY_SECOND") {
         return {
             ...state, answerSecond: Number(action.payload.valueOneS) *
-                Number(action.payload.valueSecondS), value: {valueOneS: '', valueSecondS: ''}
+                Number(action.payload.valueSecondS), valueS: {valueOneS: '', valueSecondS: ''}
         }
     } else if (action.type === "DIVIDE_SECOND") {
         return {
             ...state, answerSecond: (Number(action.payload.valueOneS) /
-                Number(action.payload.valueSecondS)).toFixed(1), value: {valueOneS: '', valueSecondS: ''}
+                Number(action.payload.valueSecondS)).toFixed(1), valueS: {valueOneS: '', valueSecondS: ''}
         }
     } else if (action.type === "PLUS_SECOND") {
         return {
             ...state, answerSecond: Number(action.payload.valueOneS) +
-                Number(action.payload.valueSecondS), value: {valueOneS: '', valueSecondS: ''}
+                Number(action.payload.valueSecondS), valueS: {valueOneS: '', valueSecondS: ''}
         }
     } else if (action.type === "VALUE_SECOND") {
-        return {...state, value: action.payload}
+        return {...state, valueS: action.payload}
     }
+    // третий калькулятор (комбо первого и второго)
 
+    else if (action.type === "PLUS_THIRD") {
+        return {
+            ...state, answerThird: Number(action.payload.valueOneT) +
+                Number(action.payload.valueSecondT)
+        }
+    }
+    else if (action.type === "MINUS_THIRD") {
+        return {
+            ...state, answerThird: Number(action.payload.valueOneT) -
+                Number(action.payload.valueSecondT)
+        }
+    }
+    else if (action.type === "MULTIPLY_THIRD") {
+        return {
+            ...state, answerThird: Number(action.payload.valueOneT) *
+                Number(action.payload.valueSecondT)
+        }
+    }
+    else if (action.type === "DIVIDE_THIRD") {
+        return {
+            ...state, answerThird: (Number(action.payload.valueOneT) /
+                Number(action.payload.valueSecondT)).toFixed(1)
+        }
+    }
     return state
 }

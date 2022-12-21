@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 function CalculatorSecond() {
     const dispatch = useDispatch()
-    const value = useSelector(state => state.value)
+    const value = useSelector(state => state.valueS)
     const answerSecond = useSelector(state => state.answerSecond)
 
     const changeInputSecond = (event) => {
@@ -23,7 +23,7 @@ function CalculatorSecond() {
         }
     }
     const plus = () => {
-        if (checkValue() === true) {
+        if (checkValue()) {
             dispatch({
                 type: "PLUS_SECOND",
                 payload: value
@@ -31,7 +31,7 @@ function CalculatorSecond() {
         }
     }
     const minus = () => {
-        if (checkValue() === true) {
+        if (checkValue()) {
             dispatch({
                 type: "MINUS_SECOND",
                 payload: value
@@ -39,7 +39,7 @@ function CalculatorSecond() {
         }
     }
     const multiply = () => {
-        if (checkValue() === true) {
+        if (checkValue()) {
             dispatch({
                 type: "MULTIPLY_SECOND",
                 payload: value
@@ -47,7 +47,7 @@ function CalculatorSecond() {
         }
     }
     const divide = () => {
-        if (checkValue() === true) {
+        if (checkValue()) {
             dispatch({
                 type: "DIVIDE_SECOND",
                 payload: value
