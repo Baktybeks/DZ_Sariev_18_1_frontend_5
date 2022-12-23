@@ -1,0 +1,5 @@
+export const types = {
+    INPUT_NUMBER: "INPUT_NUMBER",
+    ADD_NUMBER: "ADD_NUMBER",
+    CLEAR_NUMBER: "CLEAR_NUMBER"
+}
