@@ -15,6 +15,9 @@ function AddNumber() {
     }
 
     const addNumber = () => {
+        if (inputNumber === "") {
+            alert("value empty")
+        } else
         dispatch(addNumberActions(inputNumber))
     }
 
